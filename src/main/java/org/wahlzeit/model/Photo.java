@@ -94,6 +94,7 @@ public class Photo extends DataObject {
 	protected int width;
 	protected int height;
 	protected PhotoSize maxPhotoSize = PhotoSize.MEDIUM; // derived
+	protected Coordinate location;
 	
 	/**
 	 *
@@ -144,6 +145,16 @@ public class Photo extends DataObject {
 	 */
 	public Photo(PhotoId myId) {
 		id = myId;
+
+		incWriteCount();
+	}
+	
+	/**
+	 * @methodtype constructor
+	 */
+	public Photo(PhotoId myId, Coordinate location) {
+		id = myId;
+		this.location = location;
 
 		incWriteCount();
 	}
