@@ -94,7 +94,7 @@ public class Photo extends DataObject {
 	protected int width;
 	protected int height;
 	protected PhotoSize maxPhotoSize = PhotoSize.MEDIUM; // derived
-	protected Coordinate location;
+	protected Location location;
 	
 	/**
 	 *
@@ -152,7 +152,7 @@ public class Photo extends DataObject {
 	/**
 	 * @methodtype constructor
 	 */
-	public Photo(PhotoId myId, Coordinate location) {
+	public Photo(PhotoId myId, Location location) {
 		id = myId;
 		this.location = location;
 
