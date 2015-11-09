@@ -1,13 +1,33 @@
 package org.wahlzeit.model;
 
-public class Location {
-	private Coordinate coordinate;
-	private String name;
+import org.wahlzeit.services.DataObject;
+import org.wahlzeit.services.ObjectManager;
+
+import com.google.appengine.api.datastore.Key;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Parent;
+
+/**
+ * Represents a location on earth.
+ */
+@Entity
+public class Location extends DataObject {
+	/**
+	 * 
+	 */
+	@Id
+	private static final long serialVersionUID = -2884389023841908956L;
+	@Parent
+	Key parent = ObjectManager.applicationRootKey;
+	
+	private SphericCoordinate coordinate;
+	private String name = "unknown";
 	
 	/**
 	 * @methodtype constructor
 	 */
-	public Location(Coordinate coordinate, String name) {
+	public Location(SphericCoordinate coordinate, String name) {
 		super();
 		this.coordinate = coordinate;
 		this.name = name;
@@ -16,14 +36,14 @@ public class Location {
 	/**
 	 * @methodtype get
 	 */
-	public Coordinate getCoordinate() {
+	public SphericCoordinate getCoordinate() {
 		return coordinate;
 	}
 	
 	/**
 	 * @methodtype set
 	 */
-	public void setCoordinate(Coordinate coordinate) {
+	public void setCoordinate(SphericCoordinate coordinate) {
 		this.coordinate = coordinate;
 	}
 	

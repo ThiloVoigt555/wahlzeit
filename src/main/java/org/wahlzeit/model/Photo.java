@@ -41,8 +41,10 @@ import java.util.Map;
 public class Photo extends DataObject {
 
 	/**
-	 *
+	 * 
 	 */
+	private static final long serialVersionUID = -815560070062819523L;
+
 	public static final String IMAGE = "image";
 	public static final String THUMB = "thumb";
 	public static final String LINK = "link";
@@ -171,6 +173,20 @@ public class Photo extends DataObject {
 	 */
 	public void setImage(PhotoSize photoSize, Image image) {
 		this.images.put(photoSize, image);
+	}
+	
+	/**
+	 * @methodtype get
+	 */
+	public Location getLocation() {
+		return this.location;
+	}
+
+	/**
+	 * @methodtype set
+	 */
+	public void setImage(Location location) {
+		this.location = location;
 	}
 
 	/**

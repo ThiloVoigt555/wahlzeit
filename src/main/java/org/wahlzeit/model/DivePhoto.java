@@ -1,5 +1,11 @@
 package org.wahlzeit.model;
 
+import com.googlecode.objectify.annotation.Subclass;
+
+/**
+ * Represents a Photo of the Diving domain of this WahlZeit instance.
+ */
+@Subclass
 public class DivePhoto extends Photo {
 	/**
 	 * 
@@ -24,6 +30,8 @@ public class DivePhoto extends Photo {
 	}
 	
 	/**
+	 * @param depth The depth the photo was taken.
+	 * @param diveTime The length of the dive in minutes (ground time).
 	 * @methodtype constructor
 	 */
 	public DivePhoto(int depth, int diveTime) {

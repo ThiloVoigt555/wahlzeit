@@ -55,7 +55,7 @@ public class PhotoFactory {
 	public static synchronized PhotoFactory getInstance() {
 		if (instance == null) {
 			log.config(LogBuilder.createSystemMessage().addAction("setting generic PhotoFactory").toString());
-			setInstance(new PhotoFactory());
+			setInstance(new DivePhotoFactory());
 		}
 
 		return instance;
@@ -76,7 +76,7 @@ public class PhotoFactory {
 	 * @methodtype factory
 	 */
 	public Photo createPhoto() {
-		return new DivePhoto();
+		return new Photo();
 	}
 	
 	
@@ -85,7 +85,7 @@ public class PhotoFactory {
 	 * Creates a new photo with the specified id
 	 */
 	public Photo createPhoto(PhotoId id) {
-		return new DivePhoto(id);
+		return new Photo(id);
 	}
 
 	/**
