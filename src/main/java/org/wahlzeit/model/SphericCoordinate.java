@@ -1,25 +1,16 @@
 package org.wahlzeit.model;
 
-import org.wahlzeit.services.DataObject;
-import org.wahlzeit.services.ObjectManager;
-
-import com.google.appengine.api.datastore.Key;
-import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
-import com.googlecode.objectify.annotation.Parent;
+import com.googlecode.objectify.annotation.Subclass;
 
 /**
  * Represents coordinates of a point on earth.
  */
-@Entity
-public class SphericCoordinate extends DataObject implements Coordinate {
+@Subclass
+public class SphericCoordinate extends AbstractCoordinate {
 	/**
 	 * 
 	 */
-	@Id
 	private static final long serialVersionUID = -5236099320619043584L;
-	@Parent
-	Key parent = ObjectManager.applicationRootKey;
 	
 	private double latitude;
 	private double longitude;
@@ -58,22 +49,6 @@ public class SphericCoordinate extends DataObject implements Coordinate {
 	public double getRadius() {
 		return radius;
 	}
-
-	/**
-	 * @methodtype comparison
-	 */
-	@Override
-	public double getDistance(Coordinate there) {			
-		return this.getDistance(there.asSphericCoordinate());
-	}
-
-	/**
-	 * @methodtype boolean query
-	 */
-	@Override
-	public boolean isEqual(Coordinate there) {
-		return equals(there.asSphericCoordinate());
-	}
 	
 	/**
 	 * @methodtype converter
@@ -85,6 +60,7 @@ public class SphericCoordinate extends DataObject implements Coordinate {
 	/**
 	 * @methodtype comparison
 	 */
+	@SuppressWarnings("unused")
 	private double getDistance(SphericCoordinate there) {
 		if(there == null)
 			throw new IllegalArgumentException("Input was Null!");

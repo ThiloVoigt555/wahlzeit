@@ -4,10 +4,10 @@ import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
 
+import org.wahlzeit.model.AbstractCoordinate;
 import org.wahlzeit.model.Administrator;
 import org.wahlzeit.model.CartesianCoordinate;
 import org.wahlzeit.model.Client;
-import org.wahlzeit.model.SphericCoordinate;
 import org.wahlzeit.model.DivePhoto;
 import org.wahlzeit.model.Globals;
 import org.wahlzeit.model.Guest;
@@ -15,6 +15,7 @@ import org.wahlzeit.model.Location;
 import org.wahlzeit.model.Moderator;
 import org.wahlzeit.model.Photo;
 import org.wahlzeit.model.PhotoCase;
+import org.wahlzeit.model.SphericCoordinate;
 import org.wahlzeit.model.Tag;
 import org.wahlzeit.model.User;
 import org.wahlzeit.model.persistence.DatastoreAdapter.ImageWrapper;
@@ -41,8 +42,9 @@ public class OfyService {
 		factory().register(PhotoCase.class);
 		factory().register(ImageWrapper.class);
 		factory().register(DivePhoto.class);
-		factory().register(SphericCoordinate.class);
+		factory().register(AbstractCoordinate.class);
 		factory().register(CartesianCoordinate.class);
+		factory().register(SphericCoordinate.class);
 		factory().register(Location.class);
 	}
 

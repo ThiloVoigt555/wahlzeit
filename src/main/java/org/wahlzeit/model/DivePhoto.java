@@ -30,6 +30,20 @@ public class DivePhoto extends Photo {
 	}
 	
 	/**
+	 * @methodtype constructor
+	 */
+	public DivePhoto(PhotoId id, Location location) {
+		super(id, location);
+	}
+	
+	/**
+	 * @methodtype constructor
+	 */
+	public DivePhoto(Location location) {
+		super(location);
+	}
+	
+	/**
 	 * @param depth The depth the photo was taken.
 	 * @param diveTime The length of the dive in minutes (ground time).
 	 * @methodtype constructor

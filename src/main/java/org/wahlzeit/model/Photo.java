@@ -160,6 +160,15 @@ public class Photo extends DataObject {
 
 		incWriteCount();
 	}
+	
+	/**
+	 * @methodtype constructor
+	 */
+	public Photo(Location location) {
+		this.location = location;
+
+		incWriteCount();
+	}
 
 	/**
 	 * @methodtype get

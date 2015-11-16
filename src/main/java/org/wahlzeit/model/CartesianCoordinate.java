@@ -1,25 +1,16 @@
 package org.wahlzeit.model;
 
-import org.wahlzeit.services.DataObject;
-import org.wahlzeit.services.ObjectManager;
-
-import com.google.appengine.api.datastore.Key;
-import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
-import com.googlecode.objectify.annotation.Parent;
+import com.googlecode.objectify.annotation.Subclass;
 
 /**
  * Represents coordinates of a point in Space.
  */
-@Entity
-public class CartesianCoordinate extends DataObject implements Coordinate {
+@Subclass
+public class CartesianCoordinate extends AbstractCoordinate {
 	/**
 	 * 
 	 */
-	@Id
 	private static final long serialVersionUID = 7326971247858929780L;
-	@Parent
-	Key parent = ObjectManager.applicationRootKey;
 	
 	private double x;
 	private double y;
@@ -54,22 +45,6 @@ public class CartesianCoordinate extends DataObject implements Coordinate {
 	 */
 	public double getZ() {
 		return z;
-	}
-	
-	/**
-	 * @methodtype comparison
-	 */
-	@Override
-	public double getDistance(Coordinate there) {
-		return this.asSphericCoordinate().getDistance(there);
-	}
-	
-	/**
-	 * @methodtype boolean comparison
-	 */
-	@Override
-	public boolean isEqual(Coordinate there) {
-		return this.asSphericCoordinate().isEqual(there);
 	}
 	
 	/** 
