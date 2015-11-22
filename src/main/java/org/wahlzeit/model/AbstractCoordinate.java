@@ -1,5 +1,7 @@
 package org.wahlzeit.model;
 
+import java.awt.IllegalComponentStateException;
+
 import org.wahlzeit.services.DataObject;
 import org.wahlzeit.services.ObjectManager;
 
@@ -19,6 +21,11 @@ public abstract class AbstractCoordinate extends DataObject implements Coordinat
 	Key parent = ObjectManager.applicationRootKey;
 
 	/**
+	 * Calculates the distance to another {@link SphericCoordinate} point.
+	 * @param there is a second point in a {@link SphericCoordinate} representation.
+	 * @throws IllegalArgumentException when there is null.
+	 * @throws IllegalStateException when the conversion to an SphericCoordinate could not be done.
+	 * @throws IllegalComponentStateException when the calculated distance is smaller than 0.
 	 * @methodtype comparison
 	 */
 	@Override
