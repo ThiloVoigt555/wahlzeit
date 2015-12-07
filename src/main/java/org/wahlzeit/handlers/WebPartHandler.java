@@ -27,7 +27,14 @@ import java.util.Map;
 
 
 /**
- * The general interface for web partgs.
+ * The general interface for web parts.
+ * @Pattern (
+ *       name = “Facade”
+ *       participants = {
+ *         “WebPartHandler”,
+ *         "AbstractWebPartHandler"
+ *       }
+ *	)
  */
 public interface WebPartHandler {
 

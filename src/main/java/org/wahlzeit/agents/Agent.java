@@ -64,6 +64,12 @@ public abstract class Agent {
 
 	/**
 	 * @methodtype command
+	 * @Pattern (
+     *       name = “Command”
+     *       participants = {
+     *         “LogBuilder”
+     *       }
+	 *	)
 	 */
 	public void run() {
 		synchronized (Agent.class) {
