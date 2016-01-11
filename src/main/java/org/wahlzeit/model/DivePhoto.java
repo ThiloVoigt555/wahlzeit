@@ -1,5 +1,6 @@
 package org.wahlzeit.model;
 
+import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Subclass;
 
 /**
@@ -10,10 +11,9 @@ public class DivePhoto extends Photo {
 	/**
 	 * 
 	 */
+	@Id
 	private static final long serialVersionUID = 5271409141930682239L;
-	
-	private int depth; // The diving-depth the photo was made
-	private int diveTime; // The time under water on the dive
+	private Dive dive;
 	
 	/**
 	 * @methodtype constructor
@@ -37,49 +37,26 @@ public class DivePhoto extends Photo {
 	}
 	
 	/**
+	 * @param dive The dive the photo was taken in
 	 * @methodtype constructor
 	 */
-	public DivePhoto(Location location) {
+	public DivePhoto(Location location, Dive dive) {
 		super(location);
-	}
-	
-	/**
-	 * @param depth The depth the photo was taken.
-	 * @param diveTime The length of the dive in minutes (ground time).
-	 * @methodtype constructor
-	 */
-	public DivePhoto(int depth, int diveTime) {
-		super();
-		this.depth = depth;
-		this.diveTime = diveTime;
+		this.dive = dive;
 	}
 	
 	/**
 	 * @methodtype get
 	 */
-	public int getDepth() {
-		return depth;
+	public Dive getDive() {
+		return this.dive;
 	}
 
 	/**
 	 * @methodtype set
 	 */
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
-
-	/**
-	 * @methodtype get
-	 */
-	public int getDiveTime() {
-		return diveTime;
-	}
-
-	/**
-	 * @methodtype set
-	 */
-	public void setDiveTime(int diveTime) {
-		this.diveTime = diveTime;
+	public void setDive(Dive dive) {
+		this.dive = dive;
 	}
 
 	/**
@@ -87,6 +64,6 @@ public class DivePhoto extends Photo {
 	 */
 	@Override
 	public String toString() {
-		return "DivePhoto [depth=" + depth + ", diveTime=" + diveTime + "]";
+		return "DivePhoto [dive=" + dive + "]";
 	}	
 }
